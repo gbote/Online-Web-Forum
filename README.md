@@ -2,7 +2,7 @@
 
 ## Introduction
 
-We're going to ask you to create an a very basic online web forum where users can read posts, create new posts, and comment on existing posts. This will give us practice with using forms and dealing with creating new data. Since we've not yet introduced databases, we'll be stuck with CSV files to persist our data
+We're going to ask you to create an a very basic online web forum where users can read posts, create new posts, and comment on existing posts. This will give us practice with using forms and dealing with creating new data. Since we've not yet introduced databases, we'll be stuck with CSV files to persist our data.
 
 ## 1. Create Django Project
 
