@@ -1,6 +1,5 @@
-from hashlib import new
-from django.db import models
 from datetime import datetime
+from time import strftime
 
 ## main classes
 
@@ -42,10 +41,7 @@ class Post:
     def add_comment(self, new_comment, update_file = True):
         self.comments.append(new_comment)
         if update_file:
-            print(new_comment.__dict__.keys)
-            # append_data(COMMENTS_FILE, [new_comment], new_comment.__dict__.keys())
-            append_data(COMMENTS_FILE, [new_comment], Comment.file_headers)
-
+            append_data(COMMENTS_FILE, [new_comment], new_comment.__dict__.keys())
 
     @classmethod
     def add_post(cls, new_post):
@@ -57,6 +53,7 @@ class Post:
 
 import csv
 import os
+import itertools
 
 POSTS_FILE = "./data/posts.csv"
 COMMENTS_FILE = "./data/comments.csv"
@@ -68,7 +65,6 @@ def read_data(filepath, ClassName):
     with open(os.path.join(BASE_PATH, filepath), "r") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            #print(row)
             person = ClassName(**row)
             data.append(person)
 
@@ -86,8 +82,10 @@ def append_data(filepath, data, headers):
 all_posts = read_data(POSTS_FILE, Post)
 all_comments = read_data(COMMENTS_FILE, Comment)
 
-for c in all_comments:
-    for p in all_posts:
-        if p.id == c.post_id:
-            p.add_comment(c, False)
+def find_post_by_id(id):
+    return next((post for post in all_posts if post.id == id), None)
+
+for c, p in itertools.product(all_comments, all_posts):
+    if p.id == c.post_id:
+        p.add_comment(c, False)
 

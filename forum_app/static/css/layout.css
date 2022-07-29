@@ -1,0 +1,61 @@
+@import "navbar.css";
+
+html{
+    font-family: var(--main-font);
+}
+
+body {
+    background-color: rgb(160, 96, 133);
+    margin-top: var(--navbar-height);
+}
+
+.main-content {
+    background-color: white;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 80vh;
+    border-radius: 10px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-post {
+    text-align: start;
+}
+
+.post {
+    color: black;
+    text-decoration: none;
+}
+
+.post:hover {
+    color: black;
+}
+
+.post-card {
+    border-color: #212529;
+}
+
+.post-card:hover {
+    color:black;
+    border-color: rgb(9, 223, 9);
+    background-color: rgb(214, 214, 214);
+}
+
+.post-card-detail {
+    border-color: #212529;
+}
+
+#body {
+    height: 125px;
+}
+
+.com-button {
+    display: flex;
+    justify-content: center;
+}

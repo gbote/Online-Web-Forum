@@ -1,0 +1,24 @@
+{% extends './layout.html' %}
+
+{% block main-content %}
+
+    <div class="card post-card-detail mx-4 my-2 text-start p-2">
+        <div class="card-header">{{post.title}}<span class="author">by: {{post.author}}<br>{{post.creation_time}}</span></div>
+        <div class="card-body text-dark">
+            <strong>{{post.body}}</strong><br/><br/>
+            {% if post.comments|length == 0 %}
+                There are no comments yet... 😔<hr />
+            {% else %}
+                Comments:
+                <hr />
+                {% for c in post.comments %}
+                    <div>{{c.author}}: {{c.body}}</div>
+                    <div>{{c.creation_time}}</div><hr>
+                {% endfor %}
+            {% endif %}
+
+            {% include './new_comment.html' %}
+        </div>
+    </div>
+
+{% endblock %}

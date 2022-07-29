@@ -1,0 +1,17 @@
+<div class="row justify-content-center mt-0">
+    <div class="col-6">
+        <div style="text-decoration:underline;">Add a comment:</div>
+        <form method="post">
+        {% csrf_token %}
+        <div class="form-floating mb-3 mt-3">
+            <input type="text" class="form-control" id="author" name="author" placeholder="Your Name">
+            <label for="author">NAME</label>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea type="text" class="form-control" id="body" name="body" placeholder="message"></textarea>
+            <label for="body">COMMENT</label>
+        </div>
+        <div class="com-button"><button type="submit" class="btn btn-primary mt-2">Submit New Comment</button></div>
+        </form>
+    </div>
+</div>

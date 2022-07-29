@@ -1,0 +1,17 @@
+:root {
+    --navbar-height: 9vh;
+    --navbar-dark-theme-bg: black;
+    --navbar-dark-theme-fg: white;
+    /* --navbar-light-theme-bg: white;
+    --navbar-light-theme-fg: black; */
+}
+
+.navbar {
+    max-height: var(--navbar-height);
+    outline-style: groove;
+    outline-color: var(--navbar-dark-theme-fg);
+}
+
+.navbar-brand {
+    margin-left: 30px;
+}
